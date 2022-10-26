@@ -1,17 +1,15 @@
 import { Schema, model } from "mongoose";
 
-const taskSchema = new Schema({
-    title: {
+const vehicleSchema = new Schema({
+    model: {
         type: String,
         required: true,
-        unique: true,
-        trime: true
     },
     description: {
         type: String,
         required: true,
     },
-    done: {
+    alquilado: {
         type: Boolean,
         default: false
     },
@@ -20,4 +18,4 @@ const taskSchema = new Schema({
     versionKey: false
 })
 
-export default model('Task', taskSchema)
+export default model('TiendaAlquiler', vehicleSchema)

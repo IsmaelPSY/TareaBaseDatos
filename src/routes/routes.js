@@ -1,5 +1,6 @@
 import { Router } from "express";
-import Task from '../models/Movies'
+import Branch from '../models/Branch'
+import Vehicle from '../models/Vehicle'
 
 
 const router = Router()
@@ -10,12 +11,20 @@ router.get("/", (req, res) => {
     });
   });
 
-router.post('/add', async(req, res) => {
-    const task = Task(req.body)
+router.post('/branch', async(req, res) => {
+    const branch = Branch(req.body)
     
-    const taskSaved = await task.save()
-    console.log(taskSaved)
-    res.status(201).json(task)
+    const branchSaved = await branch.save()
+    console.log(branchSaved)
+    res.status(201).json(branch)
+})
+
+router.post('/vehicle', async(req, res) => {
+  const vehicle = Vehicle(req.body)
+  
+  const vehicleSaved = await vehicle.save()
+  console.log(vehicleSaved)
+  res.status(201).json(vehicle)
 })
 
 
