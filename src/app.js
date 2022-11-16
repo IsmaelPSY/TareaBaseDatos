@@ -1,13 +1,21 @@
 import express from "express";
-import router from "./routes/routes";
+import productRoutes from "./Product/product.routes.js";
 import morgan from 'morgan';
+import './database/database.js'
+import {config} from './config.js';
+
+
+
 const app = express();
 
 
 app.use(morgan('dev'));
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: false}));
-app.use(router)
+app.use(express.urlencoded({ extended: true}));
+app.use('/api/v1', productRoutes)
 
-export default app;
+app.listen(config.port, () => {
+    console.log(`Server started at port ${config.port}`)
+})
+
