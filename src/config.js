@@ -3,7 +3,7 @@ dotenv.config()
 
 export const config = {
     port: process.env.PORT,
-    // jwtSecret: process.env.JWT_SECRET,
+    jwtSecret: process.env.JWT_SECRET,
     db: {
         development: {
             username: process.env.DB_DEV_USERNAME,
